@@ -4,12 +4,25 @@
 
 //Declaro las variables
 
-let filas = 7, columnas = 5, i, j, numero = 35;
+let filas, columnas, i, j, numero;
+
+//Ingreso y control del numero de repeticiones
+do {
+    filas = parseInt(window.prompt(`Ingrese el numero de filas: `));
+    columnas = parseInt(window.prompt(`Ingrese el numero de columnas: `));
+    if (isNaN(filas) || isNaN(columnas)) {
+        confirm("Debe ingresar solo valores numericos");
+    } else if (filas < 0 || columnas < 0) {
+        confirm("Los valores ingresados deben ser mayores a 0");
+    }
+} while (isNaN(filas) || isNaN(columnas) || filas < 0 || columnas < 0)
+
+numero = filas * columnas;
 
 for (i = 1; i <= filas; i++) {
     for (j = 1; j <= columnas; j++) {
         document.write(numero + "-");
-        numero-- ;
+        numero--;
     }
     document.write("</br>");
 }
